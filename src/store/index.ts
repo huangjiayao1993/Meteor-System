@@ -15,8 +15,7 @@ export const GlobalStore = defineStore({
       // collapsed
       isCollapsed: false,
       // dark theme
-      // isDark: getLocalStorageParse("GlobalStore")?.isDark || false
-      isDark: true
+      isDark: getLocalStorageParse("GlobalStore")?.isDark || false
     }
   },
   getters: {},
