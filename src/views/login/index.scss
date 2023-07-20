@@ -33,9 +33,9 @@
         width: 70%;
         min-height: 100vh;
         float: right;
-        background-image: url("../../assets/login-banner.png");
-        background-repeat: no-repeat;
-        background-position: -15% 427px;
+        // background-image: url("../../assets/login-banner.png");
+        // background-repeat: no-repeat;
+        // background-position: -15% 427px;
         .login-form {
             position: absolute;
             top: 50%;
@@ -48,8 +48,9 @@
             background-color: rgba(213, 211, 211, 0.1);
             border-radius: 4px;
 
-            & h4 {
+            & h2 {
                 text-align: center;
+                font-weight: bold;
                 margin: 0 0 25px 0;
             }
         }

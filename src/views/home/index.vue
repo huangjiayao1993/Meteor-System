@@ -10,7 +10,7 @@
 			</a-card>
 		</div>
 		<div class="home-right">
-			<img style="width: 100%" src="@/assets/wellcome.png" alt="" />
+			<!-- <img style="width: 100%" src="@/assets/wellcome.png" alt="" /> -->
 		</div>
 	</div>
 </template>

@@ -10,7 +10,7 @@
     </div>
     <div class="login-right">
       <a-form :model="usernameForm" class="login-form">
-        <h4>Meteor System</h4>
+        <h2>登&nbsp;&nbsp;录</h2>
         <a-form-item name="username" :rules="rules.username">
           <a-input v-model:value="usernameForm.username">
             <template #prefix>

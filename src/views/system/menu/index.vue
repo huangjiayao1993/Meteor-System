@@ -1,9 +1,12 @@
 <template>
   <view>
     <base-table :btn-auth="auth" :show-search="false" :row-keys="rowKeys" :columns="columns" :table-data="data" @row-select-callback="rowSelectCallback" @create-callback="createCallback" @remove-callback="removeCallback" @row-edit-callback="rowEditCallback" @row-remove-callback="rowRemoveCallback">
-    <template #type="{record}">
-      <a-tag :color="menuTypeOptions[record!.type].color">{{menuTypeOptions[record!.type].label}}</a-tag>
-    </template>
+      <template #type="{record}">
+        <a-tag :color="menuTypeOptions[record!.type].color">{{menuTypeOptions[record!.type].label}}</a-tag>
+      </template>
+      <template #action="{record}">
+        <a-button v-if="record.type != 2" v-auth="auth.create" type="link" @click="createCallback(record)">新增</a-button>
+      </template>
     </base-table>
     <a-modal :visible="visible" width="800px" :title="isEdit ? '编辑' : '新增'" destroy-on-close @cancel="cancelCallback" @ok="okCallback">
       <a-form ref="form" :label-col="{span: 3}" :model="entity" :rules="rules">
@@ -61,7 +64,10 @@ searchCallback();
 /**
  * 新增按钮回调
  */
-const createCallback = () => {
+const createCallback = (row: MenuEntity) => {
+  if (row) {
+    entity.pid = row.id
+  }
   isEdit.value = false
   visible.value = true;
 }
