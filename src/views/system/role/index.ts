@@ -31,10 +31,6 @@ export const columns: any = [
     dataIndex: 'code',
   },
   {
-    title: '状态',
-    dataIndex: 'status',
-  },
-  {
     title: '操作',
     slot: 'action',
   },
