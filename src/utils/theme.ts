@@ -1,6 +1,6 @@
 //默认主题和暗黑主题
-import dark from "@/styles/dark.scss?inline";
-import defalut from "@/styles/defalut.scss?inline";
+import dark from "@/styles/dark.scss";
+import defalut from "@/styles/defalut.scss";
 
 // 切换css
 const changeTheme = (theme: string) => {
