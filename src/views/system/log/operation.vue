@@ -6,6 +6,10 @@
           <a-input v-model:value="model.username" placeholder="请输入账号"></a-input>
         </a-form-item>
       </template>
+      <template #success="{record}">
+        <a-tag v-if="record.success" color="#87d068">成功</a-tag>
+        <a-tag v-else color="#f50">异常</a-tag>
+      </template>
     </base-table>
   </view>
 </template>

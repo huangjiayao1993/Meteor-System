@@ -7,7 +7,7 @@ import {BtnAuth} from "@/components/table/index";
 class LoginBtnAuth extends BtnAuth {
   constructor() {
     super();
-    super.search = ['sys:log:login:list']
+    super.search = ['log:login:list']
   }
 }
 export const loginAuth = reactive<LoginBtnAuth>(new LoginBtnAuth());
@@ -45,7 +45,7 @@ export const loginColumns: any = [
 class operationBtnAuth extends BtnAuth {
   constructor() {
     super();
-    super.search = ['sys:log:operation:list']
+    super.search = ['log:operation:list']
   }
 }
 export const operationAuth = reactive<operationBtnAuth>(new operationBtnAuth());
@@ -57,5 +57,26 @@ export const operationColumns: any = [
   {
     title: '账号',
     dataIndex: 'username',
+  },
+  {
+    title: '时间',
+    dataIndex: 'createTime',
+  },
+  {
+    title: 'IP地址',
+    dataIndex: 'ip',
+  },
+  {
+    title: '耗时',
+    dataIndex: 'duration',
+  },
+  {
+    title: '操作状态',
+    slot: 'success',
+    dataIndex: 'success',
+  },
+  {
+    title: '异常原因',
+    dataIndex: 'reason',
   },
 ];

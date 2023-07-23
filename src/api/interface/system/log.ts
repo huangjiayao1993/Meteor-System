@@ -15,7 +15,9 @@ export class LoginPageModel extends PageModel{
  * 分页查询-操作日志
  */
 export class OperationPageModel extends PageModel{
-  constructor() {
+  username: string | null
+  constructor(username = null) {
     super()
+    this.username = username
   }
 }
