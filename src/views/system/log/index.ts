@@ -42,13 +42,13 @@ export const loginColumns: any = [
 /**
  * 按钮权限-操作日志
  */
-class operationBtnAuth extends BtnAuth {
+class OperationBtnAuth extends BtnAuth {
   constructor() {
     super();
     super.search = ['log:operation:list']
   }
 }
-export const operationAuth = reactive<operationBtnAuth>(new operationBtnAuth());
+export const operationAuth = reactive<OperationBtnAuth>(new OperationBtnAuth());
 
 /**
  * 数据列-操作日志

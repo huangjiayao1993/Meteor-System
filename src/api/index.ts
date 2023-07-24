@@ -35,16 +35,18 @@ axios.interceptors.request.use(
  * @return {*}
  */
 axios.interceptors.response.use((response: AxiosResponse) => {
-    const {data} = response;
+    const {data, status} = response;
     let msg: string = "请求失败"
-    if (data) {
-      msg = data.msg
-      if (data.code === 0) {
-        // 请求成功返回
-        return data;
-      }
-      if (data.code === 401) {
-        cleanUserToken();
+    if (status === 200) {
+      if (data) {
+        msg = data.msg
+        if (data.code === 0) {
+          // 请求成功返回
+          return data;
+        }
+        if (data.code === -100001) {
+          cleanUserToken();
+        }
       }
     }
     message.error(msg);

@@ -2,81 +2,82 @@ import {reactive} from "vue";
 import {BtnAuth} from "@/components/table/index";
 
 /**
- * 按钮权限-登录日志
+ * 按钮权限
  */
-class LoginBtnAuth extends BtnAuth {
+class DictBtnAuth extends BtnAuth {
   constructor() {
     super();
-    super.search = ['log:login:list']
+    super.search = ['sys:dict:list']
+    super.create = ['sys:dict:create']
+    super.remove = ['sys:dict:remove']
+    super.rowEdit = ['sys:dict:update']
+    super.rowRemove = ['sys:dict:remove']
+    super.refreshCache = ['sys:dict:refresh']
+    super.cleanCache = ['sys:dict:refresh']
   }
 }
-export const loginAuth = reactive<LoginBtnAuth>(new LoginBtnAuth());
+export const dictAuth = reactive<DictBtnAuth>(new DictBtnAuth());
 
 /**
- * 数据列-登录日志
+ * 数据列-字典类型
  */
-export const loginColumns: any = [
+export const dictTypeColumns: any = [
   {
-    title: '账号',
-    dataIndex: 'username',
+    title: '编号',
+    dataIndex: 'id',
   },
   {
-    title: '登录方式',
-    dataIndex: 'loginType',
+    title: '名称',
+    dataIndex: 'name',
   },
   {
-    title: '时间',
-    dataIndex: 'createTime',
+    title: '类型',
+    dataIndex: 'type',
   },
   {
-    title: '登录状态',
-    slot: 'success',
-    dataIndex: 'success',
-  },
-  {
-    title: '失败原因',
-    dataIndex: 'reason',
+    title: '操作',
+    slot: 'action',
   },
 ];
 
 /**
- * 按钮权限-操作日志
+ * 表单校验规则-字典类型
  */
-class operationBtnAuth extends BtnAuth {
-  constructor() {
-    super();
-    super.search = ['log:operation:list']
-  }
+export const dictTypeRules: any = {
+  name: [
+    {required: true, message: '请输入字典名称'},
+  ],
+  type: [
+    {required: true, message: '请输入字典类型'},
+  ]
 }
-export const operationAuth = reactive<operationBtnAuth>(new operationBtnAuth());
 
 /**
- * 数据列-操作日志
+ * 数据列-字典数据
  */
-export const operationColumns: any = [
+export const dictDataColumns: any = [
   {
-    title: '账号',
-    dataIndex: 'username',
+    title: '数据名称',
+    dataIndex: 'name',
   },
   {
-    title: '时间',
-    dataIndex: 'createTime',
+    title: '数据值',
+    dataIndex: 'value',
   },
   {
-    title: 'IP地址',
-    dataIndex: 'ip',
-  },
-  {
-    title: '耗时',
-    dataIndex: 'duration',
-  },
-  {
-    title: '操作状态',
-    slot: 'success',
-    dataIndex: 'success',
-  },
-  {
-    title: '异常原因',
-    dataIndex: 'reason',
+    title: '操作',
+    slot: 'action',
   },
 ];
+
+/**
+ * 表单校验规则-字典数据
+ */
+export const dictDataRules: any = {
+  name: [
+    {required: true, message: '请输入字典数据名称'},
+  ],
+  value: [
+    {required: true, message: '请输入字典数据值'},
+  ]
+}
