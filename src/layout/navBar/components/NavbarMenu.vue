@@ -41,8 +41,8 @@ const initCurrentUser = () => {
 }
 initCurrentUser()
 
-const logout = () => {
-  loginApi.logout();
+const logout = async () => {
+  await loginApi.logout();
   cleanUserToken();
   window.localStorage.removeItem("MenuStore");
   router.replace({ path: "/login" });
