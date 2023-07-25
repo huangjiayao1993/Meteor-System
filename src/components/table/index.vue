@@ -177,7 +177,7 @@ const removeCallback = () => {
   if (props.rowKeys && props.rowKeys.length) {
     Modal.confirm({
       title: '警告',
-      content: '请确实是否删除所选数据，删除后将无法恢复!',
+      content: '请确认是否删除所选数据，删除后将无法恢复!',
       maskClosable: true,
       onOk() {
         emits('removeCallback');
@@ -193,14 +193,30 @@ const removeCallback = () => {
  * 刷新缓存回调
  */
 const refreshCacheCallback = () => {
-  emits('refreshCacheCallback');
+  Modal.confirm({
+    title: '警告',
+    content: '请确认是否刷新缓存!',
+    maskClosable: true,
+    onOk() {
+      emits('refreshCacheCallback');
+    },
+    onCancel() {},
+  })
 }
 
 /**
  * 清除缓存回调
  */
 const cleanCacheCallback = () => {
-  emits('cleanCacheCallback');
+  Modal.confirm({
+    title: '警告',
+    content: '请确认是否清除缓存!',
+    maskClosable: true,
+    onOk() {
+      emits('cleanCacheCallback');
+    },
+    onCancel() {},
+  })
 }
 
 /**

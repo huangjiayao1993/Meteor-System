@@ -5,6 +5,7 @@ import {BtnAuth} from "@/components/table/index";
  * 按钮权限
  */
 class DictBtnAuth extends BtnAuth {
+  dictData: string[]
   constructor() {
     super();
     super.search = ['sys:dict:list']
@@ -14,9 +15,10 @@ class DictBtnAuth extends BtnAuth {
     super.rowRemove = ['sys:dict:remove']
     super.refreshCache = ['sys:dict:refresh']
     super.cleanCache = ['sys:dict:refresh']
+    this.dictData = ['sys:dict:data']
   }
 }
-export const dictAuth = reactive<DictBtnAuth>(new DictBtnAuth());
+export const auth = reactive<DictBtnAuth>(new DictBtnAuth());
 
 /**
  * 数据列-字典类型

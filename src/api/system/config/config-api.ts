@@ -8,6 +8,10 @@ export default {
  */
   refresh: () => request.POST('/system/config/refresh'),
   /**
+ * 清空缓存
+ */
+  clean: () => request.POST('/system/config/clean'),
+  /**
    * 分页
    * @param params
    */

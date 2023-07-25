@@ -1,6 +1,6 @@
 <template>
   <view>
-    <base-table show-cache-btn :btn-auth="auth" :row-keys="rowKeys" :search-model="model" :columns="columns" :table-data="data" @row-select-callback="rowSelectCallback" @search-callback="searchCallback" @reset-callback="restCallback" @create-callback="createCallback" @remove-callback="removeCallback" @row-edit-callback="rowEditCallback" @row-remove-callback="rowRemoveCallback">
+    <base-table show-cache-btn :btn-auth="auth" :row-keys="rowKeys" :search-model="model" :columns="columns" :table-data="data" @row-select-callback="rowSelectCallback" @search-callback="searchCallback" @reset-callback="restCallback" @create-callback="createCallback" @remove-callback="removeCallback" @row-edit-callback="rowEditCallback" @row-remove-callback="rowRemoveCallback" @refresh-cache-callback="refreshCacheCallback" @clean-cache-callback="cleanCacheCallback">
       <template #search>
         <a-form-item>
           <a-input v-model:value="model.key" placeholder="请输入配置KEY键"></a-input>
@@ -142,6 +142,22 @@ let rowKeys = ref(<any>[])
  */
 const rowSelectCallback = (selectedRowKeys: any, rows: any) => {
   rowKeys.value = selectedRowKeys
+}
+/**
+ * 刷新缓存回调
+ */
+const refreshCacheCallback = () => {
+  configApi.refresh().then((res) => {
+    message.success('刷新成功')
+  })
+}
+/**
+ * 清空缓存回调
+ */
+const cleanCacheCallback = () => {
+  configApi.clean().then((res) => {
+    message.success('清空成功')
+  })
 }
 </script>
 

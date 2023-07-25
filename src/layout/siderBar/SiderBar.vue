@@ -4,7 +4,7 @@
       <img src="@/assets/logo.png"/>
       <span v-if="!globalStore.isCollapsed">Meteor</span>
     </div>
-    <a-menu :selectedKedys="selectedKedys" theme="dark" mode="inline">
+    <a-menu :selected-kedys="selectedKedys" theme="dark" mode="inline" :open-keys="openKeys" @open-change="openChangeCallback">
       <template v-for="item in menuList">
         <template v-if="item.children?.length === 1 && item.redirect">
           <a-menu-item :key="item.path">
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import {VideoCameraOutlined} from "@ant-design/icons-vue";
-import {onMounted, computed} from "vue";
+import {onMounted, computed, ref} from "vue";
 import {GlobalStore} from "@/store/index";
 import {MenuStore} from "@/store/modules/menu";
 import {MenuOptions} from "@/store/interface/index";
@@ -40,8 +40,13 @@ onMounted(() => {
   menuStore.setMenuList();
 });
 const menuList = computed((): MenuOptions[] =>
-  menuStore.matchList.filter((path) => path["name"] !== "login")
+  menuStore.matchList.filter((path: any) => path["name"] !== "login")
 );
+let openKeys = ref(<any>[])
+const openChangeCallback = (k: string[]) => {
+  openKeys = k.slice(-1);
+  console.log("k = ", openKeys)
+}
 </script>
 
 <style scoped lang="scss">

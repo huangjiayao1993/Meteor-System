@@ -8,6 +8,10 @@ export default {
    */
   refresh: () => request.POST('/system/dict/refresh'),
   /**
+   * 清空缓存
+   */
+  clean: () => request.POST('/system/dict/clean'),
+  /**
    * 分页-字典类型
    * @param params
    */
