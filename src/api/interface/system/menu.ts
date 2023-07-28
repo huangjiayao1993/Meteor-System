@@ -11,15 +11,16 @@ export class MenuEntity {
   componentPath: string | null
   icon: string | null
   sort: number
-  constructor(id = null, pid = null, name = null, type: number = 0, permission = null, path = '', componentPath = null, icon = null, sort: number = 0) {
-    this.id = id
-    this.pid = pid
-    this.name = name
-    this.type = type
-    this.permission = permission
-    this.path = path
-    this.componentPath = componentPath
-    this.icon = icon
-    this.sort = sort
+
+  constructor() {
+    this.id = null
+    this.pid = null
+    this.name = null
+    this.type = 0
+    this.permission = null
+    this.path = ''
+    this.componentPath = null
+    this.icon = null
+    this.sort = 0
   }
 }

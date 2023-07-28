@@ -3,13 +3,14 @@ import {PageModel} from "@/api/interface/base";
 /**
  * 分页查询
  */
-export class OrgPageModel extends PageModel{
+export class OrgPageModel extends PageModel {
   id: string | null
   name: string | null
-  constructor(id = null, name = null) {
+
+  constructor() {
     super()
-    this.id = id
-    this.name = name
+    this.id = null
+    this.name = null
   }
 }
 
@@ -22,11 +23,12 @@ export class OrgEntity {
   name: string | null
   type: number
   sort: number
-  constructor(id = null, pid = null, name = null, type: number = 0, sort: number = 0) {
-    this.id = id
-    this.pid = pid
-    this.name = name
-    this.type = type
-    this.sort = sort
+
+  constructor() {
+    this.id = null
+    this.pid = null
+    this.name = null
+    this.type = 0
+    this.sort = 0
   }
 }

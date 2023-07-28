@@ -6,10 +6,11 @@ export class PageModel {
   pageSize: number;
   total: number;
   // showTotal: Function;
-  constructor(current: number = 1, pageSize: number = 10, total: number = 0) {
-    this.current = current;
-    this.pageSize = pageSize;
-    this.total = total;
+
+  constructor() {
+    this.current = 1;
+    this.pageSize = 10;
+    this.total = 0;
     // this.showTotal = (total: number) => `总数 ${total} 条`;
   }
 }

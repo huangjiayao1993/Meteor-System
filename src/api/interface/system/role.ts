@@ -3,11 +3,12 @@ import {PageModel} from "@/api/interface/base";
 /**
  * 分页查询
  */
-export class RolePageModel extends PageModel{
+export class RolePageModel extends PageModel {
   name: string | null
-  constructor(name = null) {
+
+  constructor() {
     super()
-    this.name = name
+    this.name = null
   }
 }
 
@@ -19,11 +20,12 @@ export class RoleEntity {
   code: string | null
   name: string | null
   status: boolean
-  constructor(id = null, code = null, name = null, status: boolean = false) {
-    this.id = id
-    this.code = code
-    this.name = name
-    this.status = status
+
+  constructor() {
+    this.id = null
+    this.code = null
+    this.name = null
+    this.status = false
   }
 }
 
@@ -33,8 +35,9 @@ export class RoleEntity {
 export class AuthorizeEntity {
   id: string | null
   authIds: string[]
-  constructor(id = null, authIds = []) {
-    this.id = id
-    this.authIds = authIds
+
+  constructor() {
+    this.id = null
+    this.authIds = []
   }
 }

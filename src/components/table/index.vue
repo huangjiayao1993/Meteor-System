@@ -78,7 +78,7 @@
 
 <script setup lang="ts">
 import {PageModel} from "@/api/interface/base";
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
 import {message, Modal} from "ant-design-vue";
 import {BtnAuth} from "@/components/table/index";
 
@@ -97,7 +97,6 @@ const props = withDefaults(
     showCacheBtn?: boolean
     columns?: Array<any>
     tableData?: Array<any>
-    rowKeys?: any
     rowKeyField?: string
     showRowEditBtn?: boolean
     showRowRemoveBtn?: boolean
@@ -111,7 +110,6 @@ const props = withDefaults(
     showCreateBtn: true,
     showRemoveBtn: true,
     columns: <any>[],
-    rowKeys: <any>[],
     tableData: <any>[],
     rowKeyField: 'id',
     showRowEditBtn: true,
@@ -119,12 +117,29 @@ const props = withDefaults(
   }
 );
 
+/**
+ * 多选ID
+ */
+let keys = ref(<any>[])
+
+/**
+ * 多选事件
+ */
 const rowSelection = reactive({
   checkStrictly: false,
+  selectedRowKeys: keys,
   onChange: (rowKeys: (string | number)[], rows: any[]) => {
-    emits('rowSelectCallback', rowKeys, rows);
+    keys.value = rowKeys
+    emits('rowSelectCallback', rowKeys, rows)
   }
 });
+
+/**
+ * 清除选中key
+ */
+const cleanKeys = () => {
+  keys.value = []
+}
 
 /**
  * 点击树节点回调
@@ -174,7 +189,7 @@ const createCallback = () => {
  * 删除回调
  */
 const removeCallback = () => {
-  if (props.rowKeys && props.rowKeys.length) {
+  if (keys.value && keys.value.length) {
     Modal.confirm({
       title: '警告',
       content: '请确认是否删除所选数据，删除后将无法恢复!',
@@ -234,6 +249,14 @@ const rowEditCallback = (row: any) => {
 const rowRemoveCallback = (row: any) => {
   emits('rowRemoveCallback', row);
 }
+
+/**
+ * 暴露方法
+ */
+defineExpose({
+  keys,
+  cleanKeys
+})
 </script>
 
 <style scoped>

@@ -4,13 +4,14 @@ import {Dayjs} from "dayjs";
 /**
  * 分页查询
  */
-export class UserPageModel extends PageModel{
-  orgId: string|null
-  nickname: string|null
-  constructor(orgId = null, nickname = null) {
+export class UserPageModel extends PageModel {
+  orgId: string | null
+  nickname: string | null
+
+  constructor() {
     super()
-    this.orgId = orgId
-    this.nickname = nickname
+    this.orgId = null
+    this.nickname = null
   }
 }
 
@@ -18,38 +19,39 @@ export class UserPageModel extends PageModel{
  * 新增实体
  */
 export class UserEntity {
-  id: string|null
-  orgId: string|null
-  username: string|null
-  password: string|null
-  newPassword: string|null
-  nickname: string|null
-  realname: string|null
-  mobile: string|null
-  avatar: string|null
+  id: string | null
+  orgId: string | null
+  username: string | null
+  password: string | null
+  newPassword: string | null
+  nickname: string | null
+  realname: string | null
+  mobile: string | null
+  avatar: string | null
   gender: boolean
   status: boolean
-  regTime: string|null
+  regTime: string | null
   enableUsed: boolean
-  enableStartTime: string|null|Dayjs
-  enableEndTime: string|null|Dayjs
-  version: string|null
-  constructor(id = null, orgId = null, username = null, password = null, newPassword = null, nickname = null, realname = null, mobile = null, avatar = null, gender = false, status = false, regTime = null, enableUsed = false, enableStartTime = null, enableEndTime = null, version = null) {
-    this.id = id
-    this.orgId = orgId
-    this.username = username
-    this.password = password
-    this.newPassword = newPassword
-    this.nickname = nickname
-    this.realname = realname
-    this.mobile = mobile
-    this.avatar = avatar
-    this.gender = gender
-    this.status = status
-    this.regTime = regTime
-    this.enableUsed = enableUsed
-    this.enableStartTime = enableStartTime
-    this.enableEndTime = enableEndTime
-    this.version = version
+  enableStartTime: string | null | Dayjs
+  enableEndTime: string | null | Dayjs
+  version: string | null
+
+  constructor() {
+    this.id = null
+    this.orgId = null
+    this.username = null
+    this.password = null
+    this.newPassword = null
+    this.nickname = null
+    this.realname = null
+    this.mobile = null
+    this.avatar = null
+    this.gender = false
+    this.status = false
+    this.regTime = null
+    this.enableUsed = false
+    this.enableStartTime = null
+    this.enableEndTime = null
+    this.version = null
   }
 }

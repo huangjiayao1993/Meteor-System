@@ -23,7 +23,7 @@ import { OperationPageModel } from "@/api/interface/system/log"
 /**
  * 分页
  */
-let model = reactive<OperationPageModel>(new OperationPageModel());
+let model = reactive(new OperationPageModel());
 /**
  * 数据列表
  */
@@ -42,7 +42,7 @@ searchCallback();
  * 重置搜索回调
  */
 const restCallback = () => {
-  model = reactive<OperationPageModel>(new OperationPageModel());
+  model = reactive(new OperationPageModel());
   searchCallback();
 }
 </script>

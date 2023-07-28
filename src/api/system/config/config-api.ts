@@ -1,15 +1,15 @@
 import request from '@/api';
-import { PageModel } from "@/api/interface/base";
-import { ConfigEntity } from '@/api/interface/system/config';
+import {PageModel} from "@/api/interface/base";
+import {ConfigEntity} from '@/api/interface/system/config';
 
 export default {
   /**
- * 刷新缓存
- */
+   * 刷新缓存
+   */
   refresh: () => request.POST('/system/config/refresh'),
   /**
- * 清空缓存
- */
+   * 清空缓存
+   */
   clean: () => request.POST('/system/config/clean'),
   /**
    * 分页

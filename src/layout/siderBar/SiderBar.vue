@@ -45,7 +45,6 @@ const menuList = computed((): MenuOptions[] =>
 let openKeys = ref(<any>[])
 const openChangeCallback = (k: string[]) => {
   openKeys = k.slice(-1);
-  console.log("k = ", openKeys)
 }
 </script>
 

@@ -23,7 +23,7 @@ import { LoginPageModel } from "@/api/interface/system/log"
 /**
  * 分页
  */
-let model = reactive<LoginPageModel>(new LoginPageModel());
+let model = reactive(new LoginPageModel());
 /**
  * 数据列表
  */
@@ -42,7 +42,7 @@ searchCallback();
  * 重置搜索回调
  */
 const restCallback = () => {
-  model = reactive<LoginPageModel>(new LoginPageModel());
+  model = reactive(new LoginPageModel());
   searchCallback();
 }
 </script>

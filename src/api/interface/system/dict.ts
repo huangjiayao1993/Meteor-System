@@ -3,8 +3,9 @@ import {PageModel} from "@/api/interface/base";
 /**
  * 分页查询-字典类型
  */
-export class DictTypePageModel extends PageModel{
+export class DictTypePageModel extends PageModel {
   name: string | null
+
   constructor(name = null) {
     super()
     this.name = name
@@ -18,6 +19,7 @@ export class DictTypeEntity {
   id: string | null
   name: string | null
   type: string | null
+
   constructor(id = null, name = null, type = null) {
     this.id = id
     this.name = name
@@ -28,13 +30,14 @@ export class DictTypeEntity {
 /**
  * 分页查询-字典数据
  */
-export class DictDataPageModel extends PageModel{
+export class DictDataPageModel extends PageModel {
   type: string | null
   name: string | null
-  constructor(type = null, name = null) {
+
+  constructor() {
     super()
-    this.type = type
-    this.name = name
+    this.type = null
+    this.name = null
   }
 }
 
@@ -46,10 +49,11 @@ export class DictDataEntity {
   type: string | null
   name: string | null
   value: string | null
-  constructor(id = null, type = null, name = null, value = null) {
-    this.id = id
-    this.type = type
-    this.name = name
-    this.value = value
+
+  constructor() {
+    this.id = null
+    this.type = null
+    this.name = null
+    this.value = null
   }
 }
