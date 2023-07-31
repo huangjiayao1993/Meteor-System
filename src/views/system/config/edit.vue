@@ -15,7 +15,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {rules} from "@/views/system/config/index";
 import {ConfigEntity} from "@/api/interface/system/config";
-import configApi from "@/api/system/config/config-api";
+import configApi from "@/api/system/config-api";
 import {message} from "ant-design-vue";
 
 const emits = defineEmits(['callback'])

@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import {getCurrentInstance, reactive, ref} from "vue";
 import {message} from "ant-design-vue";
-import roleApi from "@/api/system/role/role-api";
-import menuApi from "@/api/system/menu/menu-api";
+import roleApi from "@/api/system/role-api";
+import menuApi from "@/api/system/menu-api";
 import {AuthorizeEntity, RoleEntity} from "@/api/interface/system/role";
 
 let currentInstance = getCurrentInstance();

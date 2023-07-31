@@ -33,7 +33,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {message} from "ant-design-vue";
 import {menuTypeOptions, rules} from "@/views/system/menu/index";
-import menuApi from "@/api/system/menu/menu-api";
+import menuApi from "@/api/system/menu-api";
 import {MenuEntity} from "@/api/interface/system/menu";
 
 const emits = defineEmits(['callback'])

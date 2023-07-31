@@ -19,7 +19,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {auth, dictTypeColumns} from "@/views/system/dict/index";
 import {DictTypeEntity, DictTypePageModel} from "@/api/interface/system/dict";
-import dictApi from "@/api/system/dict/dict-api";
+import dictApi from "@/api/system/dict-api";
 import {message} from "ant-design-vue";
 import TypeEdit from '@/views/system/dict/type-edit.vue'
 import DictData from '@/views/system/dict/data.vue'

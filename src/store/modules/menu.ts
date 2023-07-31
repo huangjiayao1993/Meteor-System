@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import MenuApi from '@/api/system/menu/menu-api';
+import MenuApi from '@/api/system/menu-api';
 import matchRouter from "@/routers/permissionList"
 import {staticRouter} from "@/routers/allRouter"
 import router from "@/routers";

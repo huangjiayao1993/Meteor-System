@@ -17,7 +17,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {auth, dictDataColumns} from "@/views/system/dict/index";
 import {DictDataEntity, DictDataPageModel} from "@/api/interface/system/dict";
-import dictApi from "@/api/system/dict/dict-api";
+import dictApi from "@/api/system/dict-api";
 import {message} from "ant-design-vue";
 import DataEdit from "@/views/system/dict/data-edit.vue";
 

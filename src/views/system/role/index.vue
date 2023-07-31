@@ -19,7 +19,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {message} from "ant-design-vue";
 import {auth, columns} from "@/views/system/role/index";
-import roleApi from "@/api/system/role/role-api";
+import roleApi from "@/api/system/role-api";
 import {RoleEntity, RolePageModel} from "@/api/interface/system/role";
 import Edit from "@/views/system/role/edit.vue"
 import Authorize from "@/views/system/role/authorize.vue"

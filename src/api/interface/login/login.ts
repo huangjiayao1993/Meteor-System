@@ -11,6 +11,8 @@ export interface LoginForm {
 export interface UsernameLoginForm extends LoginForm {
   username: string;
   password: string;
+  uuid: string;
+  code: string;
 }
 
 /**

@@ -15,7 +15,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {updatePasswordRules} from "@/views/system/user/index";
 import {UserEntity} from "@/api/interface/system/user";
-import userApi from "@/api/system/user/user-api";
+import userApi from "@/api/system/user-api";
 import {message} from "ant-design-vue";
 
 let currentInstance = getCurrentInstance()

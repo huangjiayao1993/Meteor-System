@@ -15,7 +15,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {message} from "ant-design-vue";
 import {rules} from "@/views/system/role/index";
-import roleApi from "@/api/system/role/role-api";
+import roleApi from "@/api/system/role-api";
 import {RoleEntity} from "@/api/interface/system/role";
 
 const emits = defineEmits(['callback'])

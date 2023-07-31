@@ -15,7 +15,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {dictDataRules} from "@/views/system/dict/index";
 import {DictDataEntity} from "@/api/interface/system/dict";
-import dictApi from "@/api/system/dict/dict-api";
+import dictApi from "@/api/system/dict-api";
 import {message} from "ant-design-vue";
 
 const emits = defineEmits(['callback'])

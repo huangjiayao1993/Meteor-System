@@ -21,7 +21,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {orgTypeOptions, rules} from "@/views/system/org/index";
 import {OrgEntity} from "@/api/interface/system/org";
-import orgApi from "@/api/system/org/org-api";
+import orgApi from "@/api/system/org-api";
 import {message} from "ant-design-vue";
 
 const emits = defineEmits(['callback'])

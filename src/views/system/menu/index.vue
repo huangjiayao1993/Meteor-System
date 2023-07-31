@@ -13,7 +13,7 @@
 import {getCurrentInstance, ref} from "vue";
 import {message} from "ant-design-vue";
 import {auth, columns, menuTypeOptions} from "@/views/system/menu/index";
-import menuApi from "@/api/system/menu/menu-api";
+import menuApi from "@/api/system/menu-api";
 import {MenuEntity} from "@/api/interface/system/menu";
 import Edit from "@/views/system/menu/edit.vue";
 

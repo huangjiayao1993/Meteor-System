@@ -15,7 +15,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {auth, columns} from "@/views/system/org/index";
 import {OrgEntity, OrgPageModel} from "@/api/interface/system/org";
-import orgApi from "@/api/system/org/org-api";
+import orgApi from "@/api/system/org-api";
 import {message} from "ant-design-vue";
 import Edit from "@/views/system/org/edit.vue";
 

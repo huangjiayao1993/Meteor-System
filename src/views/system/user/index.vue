@@ -31,8 +31,8 @@ import {getCurrentInstance, reactive, ref} from "vue";
 import {auth, columns} from "@/views/system/user/index";
 import {OrgEntity} from "@/api/interface/system/org";
 import {UserEntity, UserPageModel} from "@/api/interface/system/user";
-import orgApi from "@/api/system/org/org-api";
-import userApi from "@/api/system/user/user-api";
+import orgApi from "@/api/system/org-api";
+import userApi from "@/api/system/user-api";
 import {message, Modal} from "ant-design-vue";
 import Edit from "@/views/system/user/edit.vue"
 import Authorize from "@/views/system/user/authorize.vue"

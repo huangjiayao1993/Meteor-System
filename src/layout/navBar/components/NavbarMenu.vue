@@ -26,7 +26,6 @@ import { DownOutlined, FullscreenOutlined, FullscreenExitOutlined } from "@ant-d
 import { UserStore } from "@/store/modules/user";
 import { useFullscreen } from '@vueuse/core'
 import { cleanUserToken } from "@/utils/common";
-import loginApi from "@/api/login/login-api";
 import authApi from "@/api/auth/auth-api";
 
 const userStore = UserStore();
@@ -42,7 +41,7 @@ const initCurrentUser = () => {
 initCurrentUser()
 
 const logout = async () => {
-  await loginApi.logout();
+  await authApi.logout();
   cleanUserToken();
   window.localStorage.removeItem("MenuStore");
   router.replace({ path: "/login" });

@@ -13,7 +13,7 @@
 import {getCurrentInstance, reactive, ref} from "vue";
 import {auth, columns} from "@/views/system/config/index";
 import {ConfigEntity, ConfigPageModel} from "@/api/interface/system/config";
-import configApi from "@/api/system/config/config-api";
+import configApi from "@/api/system/config-api";
 import {message} from "ant-design-vue";
 import Edit from "@/views/system/config/edit.vue"
 
