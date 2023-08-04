@@ -6,6 +6,9 @@
           <a-input v-model:value="model.name" placeholder="请输入组织名称"></a-input>
         </a-form-item>
       </template>
+      <template #type="{record}">
+        <a-tag :color="orgTypeOptions[record!.type].color">{{orgTypeOptions[record!.type].label}}</a-tag>
+      </template>
     </base-table>
     <edit ref="editRef" @callback="searchCallback"></edit>
   </view>
@@ -13,7 +16,7 @@
 
 <script setup lang="ts">
 import {getCurrentInstance, reactive, ref} from "vue";
-import {auth, columns} from "@/views/system/org/index";
+import {auth, columns, orgTypeOptions} from "@/views/system/org/index";
 import {OrgEntity, OrgPageModel} from "@/api/interface/system/org";
 import orgApi from "@/api/system/org-api";
 import {message} from "ant-design-vue";

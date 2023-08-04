@@ -26,6 +26,7 @@ export const columns: any = [
   },
   {
     title: '分类',
+    slot: 'type',
     dataIndex: 'type',
   },
   {
@@ -44,11 +45,13 @@ export const columns: any = [
 export const orgTypeOptions: any = [
   {
     label: '部门',
-    value: 0
+    value: 0,
+    color: 'cyan'
   },
   {
     label: '公司',
-    value: 1
+    value: 1,
+    color: 'blue'
   }
 ]
 

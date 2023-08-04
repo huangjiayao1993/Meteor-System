@@ -19,10 +19,12 @@ export class ConfigEntity {
   id: string | null
   key: string | null
   value: string | null
+  desc: string | null
 
   constructor() {
     this.id = null
     this.key = null
     this.value = null
+    this.desc = null
   }
 }

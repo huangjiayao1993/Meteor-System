@@ -35,6 +35,10 @@ export const columns: any = [
     dataIndex: 'value',
   },
   {
+    title: '说明',
+    dataIndex: 'desc',
+  },
+  {
     title: '操作',
     slot: 'action',
   },

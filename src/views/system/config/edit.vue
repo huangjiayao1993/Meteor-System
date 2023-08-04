@@ -7,6 +7,9 @@
       <a-form-item label="值" name="value">
         <a-input v-model:value="entity.value" placeholder="请输入VALUE值"></a-input>
       </a-form-item>
+      <a-form-item label="说明" name="desc">
+        <a-input v-model:value="entity.desc" placeholder="请输入说明"></a-input>
+      </a-form-item>
     </a-form>
   </a-modal>
 </template>
