@@ -73,6 +73,9 @@ const request = {
   },
   DELETE: (url: string, data?: any) => {
     return axios.delete(url, {data: data})
+  },
+  UPLOAD: (url: string, data?: any) => {
+    return axios.post(url, data, {headers: {'Content-Type': 'multipart/form-data'}})
   }
 }
 

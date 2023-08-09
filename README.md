@@ -32,7 +32,7 @@ Setup语法糖 & Vite3 & Vue-Router4 & Ant Design Vue & Pinia & TypeScript 。
 
 ## 快速启动📖
 
-以下为后台启动的过程：
+以下为启动的过程：
 
 1. `npm install`
 
@@ -48,6 +48,18 @@ Setup语法糖 & Vite3 & Vue-Router4 & Ant Design Vue & Pinia & TypeScript 。
 ## 在线预览👀
 
 待测试环境部署，或本地部署
+
+## 效果图👀
+
+<img src="./doc/登录页.png" width="500">
+<img src="./doc/首页.png" width="500">
+<img src="./doc/组织管理.png" width="500">
+<img src="./doc/用户管理.png" width="500">
+<img src="./doc/角色管理.png" width="500">
+<img src="./doc/角色授权.png" width="500">
+<img src="./doc/菜单管理.png" width="500">
+<img src="./doc/系统配置.png" width="500">
+<img src="./doc/登录日志.png" width="500">
 
 ## 仓库地址📚
 
@@ -94,24 +106,17 @@ src
 ```
 
 ## 功能列表
+1. 组织管理
+2. 用户管理
+3. 角色管理
+4. 菜单管理
+5. 系统配置
+6. 字典管理
+7. 登录日志
+8. 操作日志
 
-#### 1. 组织管理
 
-#### 2. 用户管理
-
-#### 3. 角色管理
-
-#### 4. 菜单管理
-
-#### 5. 系统配置
-
-#### 6. 字典管理
-
-#### 7. 登录日志
-
-#### 8. 操作日志
-
-#### 9. 持续更新...
+9. 持续更新...
 
 ## 开源协议
 

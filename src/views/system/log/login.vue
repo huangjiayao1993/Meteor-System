@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { loginAuth, loginColumns } from "@/views/system/log/index";
-import logApi from "@/api/system/log/log-api";
+import logApi from "@/api/system/log-api";
 import { LoginPageModel } from "@/api/interface/system/log"
 
 /**

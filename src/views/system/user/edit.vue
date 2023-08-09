@@ -19,9 +19,15 @@
       <a-form-item label="手机号" name="mobile">
         <a-input v-model:value="entity.mobile" placeholder="请输入手机号"></a-input>
       </a-form-item>
-      <!-- <a-form-item label="头像" name="avatar">
-        <a-input v-model:value="entity.avatar" placeholder="请输入头像"></a-input>
-      </a-form-item> -->
+      <a-form-item label="头像" name="avatar">
+        <a-upload v-model:file-list="avatarFileList" accept="image/png,image/jpeg" list-type="picture-card" :show-upload-list="false" :customRequest="avatarUpload">
+          <img width="100" height="100" v-if="entity.avatar" :src="entity.avatar" alt="avatar" />
+          <div v-else>
+            <PlusOutlined></PlusOutlined>
+            <div class="ant-upload-text"></div>
+          </div>
+        </a-upload>
+      </a-form-item>
       <a-form-item label="性别" name="gender">
         <a-radio-group v-model:value="entity.gender" option-type="button" button-style="solid" :options="genderOptions"></a-radio-group>
       </a-form-item>
@@ -40,13 +46,18 @@
 
 <script setup lang="ts">
 import { getCurrentInstance, reactive, ref } from "vue";
+import {
+  PlusOutlined,
+} from "@ant-design/icons-vue";
+import { message } from "ant-design-vue";
+import dayjs from "dayjs";
 import { genderOptions, rules } from "@/views/system/user/index";
 import { OrgEntity } from "@/api/interface/system/org";
 import { UserEntity } from "@/api/interface/system/user";
 import orgApi from "@/api/system/org-api";
 import userApi from "@/api/system/user-api";
-import { message } from "ant-design-vue";
-import dayjs from "dayjs";
+import commonApi from "@/api/system/common-api";
+import {UploadEntity} from "@/api/interface/system/common";
 
 const emits = defineEmits(['callback'])
 
@@ -110,6 +121,20 @@ const close = (msg: string = undefined) => {
     message.success(msg)
     emits('callback')
   }
+}
+/**
+ * 上传头像-文件
+ */
+let avatarFileList = ref(<any>[])
+/**
+ * 上传头像
+ */
+const avatarUpload = (e: any) => {
+  const data = new UploadEntity(e.file, 'avatar')
+  commonApi.upload(data).then((res) => {
+    avatarFileList.value = [res.data]
+    entity.avatar = res.data
+  });
 }
 /**
  * 暴露方法

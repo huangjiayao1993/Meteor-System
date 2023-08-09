@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { operationAuth, operationColumns } from "@/views/system/log/index";
-import logApi from "@/api/system/log/log-api";
+import logApi from "@/api/system/log-api";
 import { OperationPageModel } from "@/api/interface/system/log"
 
 /**
