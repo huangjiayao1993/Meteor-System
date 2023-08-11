@@ -27,6 +27,7 @@ import { UserStore } from "@/store/modules/user";
 import { useFullscreen } from '@vueuse/core'
 import { cleanUserToken } from "@/utils/common";
 import authApi from "@/api/auth/auth-api";
+import watermark from '@/utils/watermark.js';
 
 const userStore = UserStore();
 const { isFullscreen, toggle } = useFullscreen()
@@ -41,10 +42,11 @@ const initCurrentUser = () => {
 initCurrentUser()
 
 const logout = async () => {
-  await authApi.logout();
-  cleanUserToken();
-  window.localStorage.removeItem("MenuStore");
-  router.replace({ path: "/login" });
+  await authApi.logout()
+  watermark.out()
+  cleanUserToken()
+  window.localStorage.removeItem("MenuStore")
+  router.replace({ path: "/login" })
 }
 </script>
 <style scoped lang="scss">

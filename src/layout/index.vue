@@ -23,6 +23,8 @@ import { useRoute } from "vue-router";
 import SiderBar from "@/layout/siderBar/SiderBar.vue";
 import NavBar from "@/layout/navBar/NavBar.vue";
 import TabsBar from "@/layout/tabsBar/TabsBar.vue";
+import {UserStore} from "@/store/modules/user";
+import watermark from "@/utils/watermark";
 const route = useRoute();
 
 const selectedKeys = ref<string[]>([route.path]);
@@ -33,6 +35,9 @@ watch(
 		selectedKeys.value = [path];
 	}
 );
+
+const userStore = UserStore();
+watermark.set(userStore.user.nickname, userStore.user.id)
 </script>
 
 <style scoped lang="scss">
