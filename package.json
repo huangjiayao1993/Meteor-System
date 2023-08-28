@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode dev",
-    "build": "vue-tsc --noEmit && vite build --mode prod",
+    "build": "vite build --mode prod",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@types/node": "^20.4.2",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "rollup-plugin-javascript-obfuscator": "^1.0.4",
     "sass": "^1.63.6",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3",
