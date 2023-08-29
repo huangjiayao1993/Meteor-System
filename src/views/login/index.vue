@@ -71,6 +71,7 @@ import { GlobalStore } from "@/store/index";
 import { UserStore } from "@/store/modules/user";
 import router from "@/routers";
 import authApi from "@/api/auth/auth-api";
+import {encrypt} from "@/utils/rsa";
 
 const globalStore = GlobalStore()
 const userStore = UserStore()
@@ -138,7 +139,10 @@ const disabled = computed(() => {
  */
 const login = () => {
   loading.value = true
-  authApi.login(usernameForm).then((tokenRes) => {
+  const form = <UsernameLoginForm>JSON.parse(JSON.stringify(usernameForm))
+  form.username = encrypt(usernameForm.username)
+  form.password = encrypt(usernameForm.password)
+  authApi.login(form).then((tokenRes) => {
     globalStore.setTokenInfo(tokenRes.data);
     authApi.current().then((userRes) => {
       const roleList = userRes.data.roleList;
