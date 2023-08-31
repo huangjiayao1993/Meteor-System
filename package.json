@@ -1,7 +1,7 @@
 {
   "name": "Meteor-System",
-  "private": true,
-  "version": "1.7.4",
+  "private": false,
+  "version": "1.7.5",
   "license": "MIT",
   "type": "module",
   "scripts": {

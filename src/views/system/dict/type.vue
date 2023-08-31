@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref, onMounted} from "vue";
 import {auth, dictTypeColumns} from "@/views/system/dict/index";
 import {DictTypeEntity, DictTypePageModel} from "@/api/interface/system/dict";
 import dictApi from "@/api/system/dict-api";
@@ -53,7 +53,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -88,6 +87,10 @@ const cleanCacheCallback = () => {
     message.success('清空成功')
   })
 }
+
+onMounted(() => {
+  searchCallback()
+})
 </script>
 
 <style scoped>

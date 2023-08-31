@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref, onMounted} from "vue";
 import {auth, columns} from "@/views/system/config/index";
 import {ConfigEntity, ConfigPageModel} from "@/api/interface/system/config";
 import configApi from "@/api/system/config-api";
@@ -41,7 +41,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -76,6 +75,10 @@ const cleanCacheCallback = () => {
     message.success('清空成功')
   })
 }
+
+onMounted(() => {
+  searchCallback()
+})
 </script>
 
 <style scoped>

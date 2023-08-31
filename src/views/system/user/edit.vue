@@ -45,10 +45,8 @@
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, reactive, ref } from "vue";
-import {
-  PlusOutlined,
-} from "@ant-design/icons-vue";
+import { getCurrentInstance, reactive, ref, onMounted } from "vue";
+import { PlusOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import dayjs from "dayjs";
 import { genderOptions, rules } from "@/views/system/user/index";
@@ -75,7 +73,6 @@ const treeInit = () => {
     tree.value = res.data;
   })
 }
-treeInit();
 /**
  * 模态窗
  */
@@ -136,6 +133,11 @@ const avatarUpload = (e: any) => {
     entity.avatar = res.data
   });
 }
+
+onMounted(() => {
+  treeInit()
+})
+
 /**
  * 暴露方法
  */

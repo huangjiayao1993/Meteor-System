@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref, onMounted} from "vue";
 import {auth, columns} from "@/views/system/user/index";
 import {OrgEntity} from "@/api/interface/system/org";
 import {UserEntity, UserPageModel} from "@/api/interface/system/user";
@@ -67,7 +67,6 @@ const treeInit = () => {
     tree.value = res.data;
   })
 }
-treeInit();
 /**
  * 树点击回调
  */
@@ -96,7 +95,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -158,6 +156,11 @@ const resetPasswordCallback = () => {
     message.error("请选择要重置密码的数据")
   }
 }
+
+onMounted(() => {
+  treeInit()
+  searchCallback()
+})
 </script>
 
 <style scoped>

@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { operationAuth, operationColumns } from "@/views/system/log/index";
 import logApi from "@/api/system/log-api";
 import { OperationPageModel } from "@/api/interface/system/log"
@@ -37,7 +37,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -45,6 +44,10 @@ const restCallback = () => {
   model = reactive(new OperationPageModel());
   searchCallback();
 }
+
+onMounted(() => {
+  searchCallback()
+})
 </script>
 
 <style scoped>

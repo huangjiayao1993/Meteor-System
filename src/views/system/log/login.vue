@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { loginAuth, loginColumns } from "@/views/system/log/index";
 import logApi from "@/api/system/log-api";
 import { LoginPageModel } from "@/api/interface/system/log"
@@ -37,7 +37,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -45,6 +44,10 @@ const restCallback = () => {
   model = reactive(new LoginPageModel());
   searchCallback();
 }
+
+onMounted(() => {
+  searchCallback()
+})
 </script>
 
 <style scoped>

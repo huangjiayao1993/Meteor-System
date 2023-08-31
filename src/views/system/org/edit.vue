@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref, onMounted} from "vue";
 import {orgTypeOptions, rules} from "@/views/system/org/index";
 import {OrgEntity} from "@/api/interface/system/org";
 import orgApi from "@/api/system/org-api";
@@ -40,7 +40,6 @@ const treeInit = () => {
     tree.value = res.data;
   })
 }
-treeInit();
 /**
  * 新增按钮回调
  */
@@ -89,6 +88,11 @@ const close = (msg: string = undefined) => {
     emits('callback')
   }
 }
+
+onMounted(() => {
+  treeInit()
+})
+
 /**
  * 暴露方法
  */

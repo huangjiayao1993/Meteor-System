@@ -59,7 +59,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, computed, ref } from "vue";
+import {reactive, computed, ref, onMounted} from "vue";
 import { message } from "ant-design-vue";
 import {
   UserOutlined,
@@ -107,7 +107,6 @@ const loadCaptcha = () => {
     errorCallback()
   })
 }
-loadCaptcha()
 /**
  * 验证码异常回调
  */
@@ -163,6 +162,10 @@ const login = () => {
     loading.value = false;
   });
 };
+
+onMounted(() => {
+  loadCaptcha()
+})
 </script>
 
 <style scoped lang="scss">

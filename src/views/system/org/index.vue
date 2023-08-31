@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref, onMounted} from "vue";
 import {auth, columns, orgTypeOptions} from "@/views/system/org/index";
 import {OrgEntity, OrgPageModel} from "@/api/interface/system/org";
 import orgApi from "@/api/system/org-api";
@@ -41,7 +41,6 @@ const treeInit = () => {
     tree.value = res.data;
   })
 }
-treeInit();
 /**
  * 树点击回调
  */
@@ -70,7 +69,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -90,6 +88,11 @@ const removeCallback = (row: OrgEntity) => {
     searchCallback();
   })
 }
+
+onMounted(() => {
+  treeInit()
+  searchCallback()
+})
 </script>
 
 <style scoped>

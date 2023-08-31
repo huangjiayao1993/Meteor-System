@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, ref} from "vue";
+import {getCurrentInstance, ref, onMounted} from "vue";
 import {message} from "ant-design-vue";
 import {auth, columns, menuTypeOptions} from "@/views/system/menu/index";
 import menuApi from "@/api/system/menu-api";
@@ -36,7 +36,6 @@ const searchCallback = () => {
     data.value = res.data;
   })
 }
-searchCallback();
 /**
  * 删除回调
  */
@@ -48,6 +47,10 @@ const removeCallback = (row: MenuEntity) => {
     searchCallback();
   })
 }
+
+onMounted(() => {
+  searchCallback()
+})
 </script>
 
 <style scoped>

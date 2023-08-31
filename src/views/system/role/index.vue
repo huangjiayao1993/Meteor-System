@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref, onMounted} from "vue";
 import {message} from "ant-design-vue";
 import {auth, columns} from "@/views/system/role/index";
 import roleApi from "@/api/system/role-api";
@@ -53,7 +53,6 @@ const searchCallback = () => {
     model.total = res.data.total;
   })
 }
-searchCallback();
 /**
  * 重置搜索回调
  */
@@ -72,6 +71,10 @@ const removeCallback = (row: RoleEntity) => {
     searchCallback();
   })
 }
+
+onMounted(() => {
+  searchCallback()
+})
 </script>
 
 <style scoped>
