@@ -11,7 +11,18 @@ import router from '@/routers/index';
 import Auth from "@/utils/auth";
 // 基类表格组件
 import BaseTable from '@/components/table/index.vue';
+// icon图标选择
+import IconPicker from '@/components/icon/index.vue';
+
+import * as antIcons from '@ant-design/icons-vue'
 
 const app = createApp(App);
 
-app.component('base-table', BaseTable).use(pinia).use(router).use(Antd).use(Auth).mount('#app');
+Object.keys(antIcons).forEach(key => {
+  // @ts-ignore
+  app.component(key, antIcons[key])
+})
+// 添加到全局
+app.config.globalProperties.$antIcons = antIcons
+
+app.component('base-table', BaseTable).component('icon-picker', IconPicker).use(pinia).use(router).use(Antd).use(Auth).mount('#app');

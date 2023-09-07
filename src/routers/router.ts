@@ -9,6 +9,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: '首页',
     },
+    icon: 'DashboardOutlined',
     children: [
       {
         path: '/home',
@@ -16,7 +17,8 @@ export const routes: RouteRecordRaw[] = [
         component: () => import("../views/home/index.vue"),
         meta: {
           title: '首页',
-        }
+        },
+        icon: 'DashboardOutlined',
       },
     ]
   },

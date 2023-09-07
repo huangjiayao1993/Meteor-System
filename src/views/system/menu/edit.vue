@@ -19,9 +19,17 @@
       <a-form-item v-if="entity.type == 1" label="组件地址" name="componentPath">
         <a-input addon-before="src/views/" addon-after=".vue" v-model:value="entity.componentPath" style="width: 100%" placeholder="请输入组件地址"></a-input>
       </a-form-item>
-<!--      <a-form-item v-if="entity.type != 2" label="图标" name="icon">-->
-<!--        <a-input v-model:value="entity.icon" style="width: 100%" placeholder="请选择图标"></a-input>-->
-<!--      </a-form-item>-->
+      <a-form-item v-if="entity.type != 2" label="图标" name="icon">
+        <icon-picker v-model:icon="entity.icon">
+          <template #iconSelect>
+            <a-input v-model:value="entity.icon">
+              <template #addonBefore>
+                <component :is="$antIcons[entity.icon]" />
+              </template>
+            </a-input>
+          </template>
+        </icon-picker>
+      </a-form-item>
       <a-form-item v-if="entity.type != 2" label="排序" name="sort">
         <a-input-number v-model:value="entity.sort" :min="0" style="width: 100%" placeholder="请输入序号"></a-input-number>
       </a-form-item>

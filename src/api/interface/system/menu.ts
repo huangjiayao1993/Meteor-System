@@ -9,7 +9,7 @@ export class MenuEntity {
   permission: string | null
   path: string | null
   componentPath: string | null
-  icon: string | null
+  icon: string
   sort: number
 
   constructor() {
@@ -20,7 +20,7 @@ export class MenuEntity {
     this.permission = null
     this.path = ''
     this.componentPath = null
-    this.icon = null
+    this.icon = ''
     this.sort = 0
   }
 }

@@ -9,7 +9,7 @@
         <template v-if="item.children?.length === 1 && item.redirect">
           <a-menu-item :key="item.path">
             <template #icon>
-              <VideoCameraOutlined/>
+              <component :is="item.icon"/>
             </template>
             <router-link :to="{ path: item.path }">
               <span>{{ item.meta.title }}</span>
@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import {VideoCameraOutlined} from "@ant-design/icons-vue";
 import {onMounted, computed, ref} from "vue";
 import {GlobalStore} from "@/store/index";
 import {MenuStore} from "@/store/modules/menu";
