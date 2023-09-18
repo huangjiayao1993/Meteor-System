@@ -23,6 +23,7 @@ axios.interceptors.request.use(
     if (tokenValue) {
       config.headers![`${tokenInfo.tokenName}`] = `Bearer ${tokenValue}`
     }
+    config.headers[`loginType`] = import.meta.env.VITE_LOGIN_TYPE
     return {...config, headers: {...config.headers}};
   },
   (error: AxiosError) => {

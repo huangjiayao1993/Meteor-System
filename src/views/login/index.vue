@@ -149,7 +149,7 @@ const login = () => {
       if (!roleList.length && !permissionList.length) {
         message.error("无权限登录")
       } else {
-        userStore.setUser(userRes.data.user);
+        userStore.setUser(userRes.data.data);
         userStore.setPermissions(permissionList);
         userStore.setRoles(roleList);
         message.success("登录成功");

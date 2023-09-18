@@ -28,26 +28,31 @@ import { useFullscreen } from '@vueuse/core'
 import { cleanUserToken } from "@/utils/common";
 import authApi from "@/api/auth/auth-api";
 import watermark from '@/utils/watermark.js';
+import {onMounted} from "vue";
 
 const userStore = UserStore();
 const { isFullscreen, toggle } = useFullscreen()
 
 const initCurrentUser = () => {
   authApi.current().then((res) => {
-    userStore.setUser(res.data.user);
+    userStore.setUser(res.data.data);
     userStore.setPermissions(res.data.permissionList);
     userStore.setRoles(res.data.roleList);
   })
 }
-initCurrentUser()
 
-const logout = async () => {
-  await authApi.logout()
-  watermark.out()
-  cleanUserToken()
-  window.localStorage.removeItem("MenuStore")
-  router.replace({ path: "/login" })
+const logout = () => {
+  authApi.logout().finally(() => {
+    watermark.out()
+    cleanUserToken()
+    window.localStorage.removeItem("MenuStore")
+    window.location.replace("/login")
+  })
 }
+
+onMounted(() => {
+  initCurrentUser();
+})
 </script>
 <style scoped lang="scss">
 .navbar-menu {
